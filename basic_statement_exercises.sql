@@ -42,7 +42,8 @@ FROM albums;
 Select 
 	name,
     release_date
-FROM albums;
+FROM albums
+WHERE name = 'Sgt. Pepper\'s Lonely Hearts Club Band';
 
 -- What is the genre for the album Nevermind?
 ## Grunge, Alternative Rock
@@ -69,7 +70,10 @@ FROM albums;
 Select 
 	name,
     release_date
-FROM albums;
+FROM albums
+WHERE release_date >= 1990 and release_date < 2000
+ORDER BY release_date desc;
+
 
 -- Which albums had less than 20 million certified sales? Rename this column as low_selling_albums.
 /* 
@@ -89,10 +93,11 @@ The Immaculate Collection	19.4
 Born in the U.S.A.	19.6
 */
 Select 
-	name,
+	name as low_selling_albums,
     sales
 FROM albums
 WHERE sales < 20
+order by sales desc;
 
 
 
